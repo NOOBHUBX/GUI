@@ -1,0 +1,107 @@
+local SoundClick = Instance.new("Sound")
+
+SoundClick.Name = "Sound Effect"
+SoundClick.Parent = game.CoreGui
+SoundClick.SoundId = "rbxassetid://130785805"
+SoundClick.Volume = 1
+
+-- SoundClick:Play()
+
+local ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/NOOBHUBX/GUI/refs/heads/main/NOOBHUBGUI.lua"))()
+
+local win = ui:W1n("",game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name,0.50,toclose)
+
+local Tap = win:Tap("Main")
+local tab = Tap:newpage()
+tab:Title("Title")
+tab:Label("Label")
+
+tab:Blank()
+
+tab:Button("Button",function()
+	ui:Notification("Noti","TEXT",5)
+end)
+
+tab:Toggle("Toggle",false,function(v)
+	print(v)
+end)
+
+tab:Button("Lock",function()
+	togcon:lock()
+end)
+
+tab:Button("Unlock",function()
+	togcon:unlock()
+end)
+
+tab:Slider("Slider",true,0,100,10,10,function(v)
+	_G.mainslider = v
+end)
+
+tab:Line()
+
+local dropno = tab:Dropdown("DropDown",{"Hi","2","3"},function (v)
+	_G.dropno = v
+end)
+
+tab:Button("Refresh",function()
+	dropno:Clear()
+
+	dropno:Add()
+end)
+
+
+tab:Textbox("TextBox","TextBox2",function(v)
+	_G.Textbox = v
+	print(_G.Textbox)
+end)
+
+tab:Bind("Bind",Enum.KeyCode.R,function (v)
+	ui:octoggle(v)
+end)
+
+tab:Color("Colorpicker", Color3.fromRGB(0, 0, 0), function(t)
+	_G.xx = t
+	print(_G.xx)
+end)
+
+tab:Blank()
+
+local test ={
+	a = false;
+	b = false;
+	c = false;
+}
+
+tab:MultiDropdown("Multi DropDown",true,{
+	location = test;
+	list = {
+		{
+			Name = "one";
+			flag = "a";
+		};
+		{
+			Name = "two";
+			flag = "b";
+		};
+		{
+			Name = "thee";
+			flag = "c";
+		};
+	};
+	default = "test";
+}, function(v)
+	_G.dropno = v
+end)
+
+local togcon = tab:Toggle("Toggle",true,function(v)
+	print(v)
+end)
+
+tab:ToggleDesc("Toggle","Desc",true,function(v)
+	print(v)
+end)
+
+tab:ToggleS("Toggle",true,function(v)
+	print(v)
+end)
