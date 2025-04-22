@@ -70,6 +70,8 @@ local function MakeDraggable(topbarobject, object)
 	)
 end
 
+do  local uia =  game:GetService("CoreGui").RobloxGui.Modules:FindFirstChild("Close")  if uia then uia:Destroy() end end
+
 Close.Name = "Close"
 Close.Parent = game:GetService("CoreGui").RobloxGui.Modules
 Close.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -161,6 +163,7 @@ Button.MouseButton1Click:Connect(function()
 	end
 	Toggle = not Toggle
 end)
+
 -- NOOB HUB v2
 do  local ui =  game:GetService("CoreGui"):FindFirstChild("Testui")  if ui then ui:Destroy() end end
 
